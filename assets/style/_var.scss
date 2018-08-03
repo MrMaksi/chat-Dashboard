@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+$roboto: 'Roboto', sans-serif;
+$bgc-inboxList: #262e3e;
+$bgc-inboxListAlt: #3a465b;
+$bgc-contactList: #343c4b;
+$bgc-contactListAlt: #3a465b;
+$bgc-message: #0084ff;
+$color-inboxList: #8190b0;
+$color-inboxListAlt: #e1ebff;
+$color-info: #2e3646;
+$border-color: rgba(#c3c3c3, .5);
+$delimiter-color: #d7d7d7;
+$delimiter-inboxList-color: #344059;
+$head-heigth: 109px;
+
+:root {
+  //--inboxPadding: 20px;
+  //--contactPadding: 30px;
+  //--messagePadding: 30px;
+  //--border-radius: 5px;
+  //--messageFooterHeight: 120px;
+  //--headerHeight: 109px;
+
+  @include media-breakpoint-only(xl) {
+    --inboxPadding: 20px;
+    --contactPadding: 30px;
+    --messagePadding: 30px;
+    --border-radius: 5px;
+    --messageFooterHeight: 120px;
+    --headerHeight: 109px;
+    --headerPadding: 22px;
+  }
+  @include media-breakpoint-only(lg) {
+    --headerPadding: 22px;
+    --inboxPadding: 15px;
+    --contactPadding: 15px;
+    --border-radius: 5px;
+    --messagePadding: 20px;
+    --messageFooterHeight: 100px;
+    --headerHeight: 109px;
+  }
+  @include media-breakpoint-only(md) {
+    --headerPadding: 22px;
+    --inboxPadding: 15px;
+    --contactPadding: 15px;
+    --border-radius: 5px;
+    --messagePadding: 20px;
+    --messageFooterHeight: 100px;
+    --headerHeight: 109px;
+  }
+
+}
+
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+@mixin flex {
+  display: flex;
+  flex: {
+    wrap: wrap;
+    direction: row;
+  }
+}
+
+@mixin transition {
+  transition: all .3s ease;
+}
+
+.btn {
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  &:not(.btn-link) {
+    padding: 12px;
+    border-color: rgba(#080d14, .5);
+  }
+  &.btn-link {
+    background-color: transparent;
+    outline: none;
+  }
+  &.btn-transparent {
+    background-color: transparent;
+  }
+  &.btn-rounded {
+    border-radius: 50%;
+  }
+  &.btn-primary {
+    background-color: #0058ff;
+  }
+  &.btn-lg {
+    padding: 19px;
+    @include media-breakpoint-down(md) {
+      padding: 15px;
+    }
+  }
+}
+
+.form-control {
+  border-radius: var(--border-radius);
+  border-color: transparent;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include placeholder {
+    transition: all .3s;
+    color: $color-inboxList;
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  &:focus {
+    outline: none;
+    @include placeholder {
+      color: transparent;
+    }
+  }
+}
+
+.dot {
+  position: relative;
+  display: block;
+  width: 3px;
+  height: 3px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: black;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: inherit;
+  }
+
+  &:before {
+    left: 5px;
+  }
+
+  &:after {
+    right: 5px;
+  }
+}
+
+
+

@@ -1,0 +1,8 @@
+.idea/
+*.iml
+.DS_Store
+.editorconfig
+.vscode/
+.history/
+package-lock.json
+node_modules/
