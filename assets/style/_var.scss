@@ -71,10 +71,11 @@ $delimiter-inboxList-color: #344059;
   }
 }
 
-@mixin flex {
+@mixin flex ($wrap){
   display: flex;
   flex: {
     direction: row;
+    wrap: $wrap;
   }
 }
 

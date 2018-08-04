@@ -90,7 +90,7 @@ body {
   align-items: center;
   height: var(--headerHeight);
   border-bottom: 1px solid $border-color;
-  @include flex;
+  @include flex(nowrap);
   p {
     margin-bottom: 0;
   }
@@ -145,7 +145,7 @@ body {
         padding: 0 11px;
         color: inherit;
         border-radius: var(--border-radius);
-        @include flex;
+        @include flex(nowrap);
         @include transition;
         &:hover {
           background-color: $bgc-inboxListAlt;
@@ -201,13 +201,9 @@ body {
   }
   &-wrapper {
     &__item {
-      display: flex;
+      @include flex(nowrap);
       align-items: center;
-      flex: {
-        flow: row nowrap;
-      };
       padding: 10px var(--contactPadding);
-    ;;
       &:hover,
       &.active {
         background-color: $bgc-contactListAlt;
@@ -364,11 +360,8 @@ body {
   &-wrapper {
     position: relative;
     align-items: flex-start;
-    flex: {
-      flow: row nowrap;
-    };
     margin-bottom: 30px;
-    @include flex;
+    @include flex(nowrap);
   }
   &-body {
     position: relative;
@@ -491,7 +484,7 @@ body {
   &-footer {
     align-items: center;
     flex: {
-      flow: row nowrap;
+      wrap: nowrap;
     };
     background-color: $bgc-messageFooter;
     @include media-breakpoint-up(md) {
@@ -500,7 +493,7 @@ body {
     @include media-breakpoint-down(sm) {
       padding: 10px var(--messagePadding);
     }
-    @include flex;
+    @include flex(nowrap);
     .action-buttons {
       display: inline-flex;
       align-items: center;
@@ -536,7 +529,7 @@ body {
     padding: var(--headerPadding) var(--inboxPadding) 15px;
 
     .actions {
-      display: flex;
+      display: flex(wrap);
       justify-content: space-between;
       margin-bottom: 30px;
     }
@@ -570,7 +563,7 @@ body {
     li {
       align-items: center;
       justify-content: space-between;
-      @include flex;
+      @include flex(wrap);
       p {
         margin-bottom: 0;
       }

@@ -1,7 +1,6 @@
 'use strict';
 
 let gulp = require('gulp'),
-    fs = require("fs"),
     autoprefixer = require('autoprefixer'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
@@ -12,7 +11,6 @@ let gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     svgmin = require('gulp-svgmin');
-;
 
 gulp.task('scss', function() {
     let processors = [
@@ -61,8 +59,6 @@ gulp.task('watch', ['browser-sync', 'htmlhint'], function() {
     gulp.watch('./assets/style/**/*.scss', ['scss']);
     gulp.watch('./*.html');
 });
-
-gulp.task('default', ['scss', 'prepareJs']);
 
 gulp.task('svgo', function() {
     return gulp.src('./assets/images/svg/*.svg')
