@@ -6,50 +6,51 @@ $bgc-inboxListAlt: #3a465b;
 $bgc-contactList: #343c4b;
 $bgc-contactListAlt: #3a465b;
 $bgc-message: #0084ff;
+$bgc-messageFooter: #fafafa;
 $color-inboxList: #8190b0;
 $color-inboxListAlt: #e1ebff;
 $color-info: #2e3646;
 $border-color: rgba(#c3c3c3, .5);
 $delimiter-color: #d7d7d7;
 $delimiter-inboxList-color: #344059;
-$head-heigth: 109px;
 
 :root {
-  //--inboxPadding: 20px;
-  //--contactPadding: 30px;
-  //--messagePadding: 30px;
-  //--border-radius: 5px;
-  //--messageFooterHeight: 120px;
-  //--headerHeight: 109px;
-
+  --border-radius: 5px;
   @include media-breakpoint-only(xl) {
     --inboxPadding: 20px;
     --contactPadding: 30px;
     --messagePadding: 30px;
-    --border-radius: 5px;
     --messageFooterHeight: 120px;
     --headerHeight: 109px;
     --headerPadding: 22px;
   }
-  @include media-breakpoint-only(lg) {
+  @include media-breakpoint-between(md, lg) {
     --headerPadding: 22px;
     --inboxPadding: 15px;
     --contactPadding: 15px;
-    --border-radius: 5px;
     --messagePadding: 20px;
     --messageFooterHeight: 100px;
-    --headerHeight: 109px;
+  }
+  @include media-breakpoint-only(lg) {
+    --headerHeight: 90px;
   }
   @include media-breakpoint-only(md) {
-    --headerPadding: 22px;
-    --inboxPadding: 15px;
-    --contactPadding: 15px;
-    --border-radius: 5px;
-    --messagePadding: 20px;
-    --messageFooterHeight: 100px;
-    --headerHeight: 109px;
+    --headerHeight: 80px;
   }
-
+  @include media-breakpoint-down(sm) {
+    --inboxPadding: 15px;
+    --headerPadding: 15px;
+    --contactPadding: 15px;
+    --messagePadding: 15px;
+  }
+  @include media-breakpoint-only(sm) {
+    --messageFooterHeight: 72px;
+    --headerHeight: 70px;
+  }
+  @include media-breakpoint-only(xs) {
+    --messageFooterHeight: 72px;
+    --headerHeight: 50px;
+  }
 }
 
 @mixin placeholder {
@@ -73,7 +74,6 @@ $head-heigth: 109px;
 @mixin flex {
   display: flex;
   flex: {
-    wrap: wrap;
     direction: row;
   }
 }
@@ -89,8 +89,13 @@ $head-heigth: 109px;
   position: relative;
   cursor: pointer;
   &:not(.btn-link) {
-    padding: 12px;
     border-color: rgba(#080d14, .5);
+    @include media-breakpoint-up(md) {
+      padding: 12px;
+    }
+    @include media-breakpoint-down(sm) {
+      padding: 8px;
+    }
   }
   &.btn-link {
     background-color: transparent;
@@ -162,6 +167,3 @@ $head-heigth: 109px;
     right: 5px;
   }
 }
-
-
-
